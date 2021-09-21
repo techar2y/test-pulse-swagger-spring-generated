@@ -172,42 +172,38 @@ public class Employee   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
+  public boolean equals(Object o) {
+
+    if (this == o)
       return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
+    if (!(o instanceof Employee))
       return false;
-    }
     Employee employee = (Employee) o;
-    return Objects.equals(this.id, employee.id) &&
-            Objects.equals(this.name, employee.name) &&
-            Objects.equals(this.position, employee.position) &&
-            Objects.equals(this.positionId, employee.positionId) &&
-            Objects.equals(this.departmentId, employee.departmentId) &&
-            Objects.equals(this.departmentName, employee.departmentName) &&
-            Objects.equals(this.salary, employee.salary);
+    return Objects.equals(this.id, employee.id)
+            && Objects.equals(this.name, employee.name)
+            && Objects.equals(this.positionId, employee.positionId)
+            && Objects.equals(this.departmentId, employee.departmentId)
+            && Objects.equals(this.departmentName, employee.departmentName)
+            && Objects.equals(this.salary, employee.salary);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, position, positionId, departmentId, departmentName, salary);
+    return Objects.hash(this.id, this.name,
+            this.positionId, this.departmentId,
+            this.departmentName, this.salary);
   }
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Employee {\n");
-
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    position: ").append(toIndentedString(position)).append("\n");
-    sb.append("    positionId: ").append(toIndentedString(positionId)).append("\n");
-    sb.append("    departmentId: ").append(toIndentedString(departmentId)).append("\n");
-    sb.append("    departmentName: ").append(toIndentedString(departmentName)).append("\n");
-    sb.append("    salary: ").append(toIndentedString(salary)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    return "Employee{"
+            + "id=" + this.id
+            + ", name='" + this.name + '\''
+            + ", positionId='" + this.positionId + '\''
+            + ", departmentId='" + this.departmentId + '\''
+            + ", departmentName='" + this.departmentName + '\''
+            + ", salary='" + this.salary + '\''
+            + '}';
   }
 
   /**

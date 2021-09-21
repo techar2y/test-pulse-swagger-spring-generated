@@ -40,30 +40,26 @@ public class AvgSalary   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
+  public boolean equals(Object o) {
+
+    if (this == o)
       return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
+    if (!(o instanceof AvgSalary))
       return false;
-    }
     AvgSalary avgSalary = (AvgSalary) o;
     return Objects.equals(this.averageSalary, avgSalary.averageSalary);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(averageSalary);
+    return Objects.hash(this.averageSalary);
   }
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AvgSalary {\n");
-
-    sb.append("    averageSalary: ").append(toIndentedString(averageSalary)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    return "AvgSalary{"
+            + "averageSalary=" + this.averageSalary
+            + '}';
   }
 
   /**

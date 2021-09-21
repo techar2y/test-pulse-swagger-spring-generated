@@ -62,32 +62,28 @@ public class AvgSalaryByDepartment   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
+  public boolean equals(Object o) {
+
+    if (this == o)
       return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
+    if (!(o instanceof AvgSalaryByDepartment))
       return false;
-    }
     AvgSalaryByDepartment avgSalaryByDepartment = (AvgSalaryByDepartment) o;
-    return Objects.equals(this.averageSalary, avgSalaryByDepartment.averageSalary) &&
-            Objects.equals(this.departmentName, avgSalaryByDepartment.departmentName);
+    return Objects.equals(this.averageSalary, avgSalaryByDepartment.averageSalary)
+            && Objects.equals(this.departmentName, avgSalaryByDepartment.departmentName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(averageSalary, departmentName);
+    return Objects.hash(this.averageSalary, this.departmentName);
   }
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AvgSalaryByDepartment {\n");
-
-    sb.append("    averageSalary: ").append(toIndentedString(averageSalary)).append("\n");
-    sb.append("    departmentName: ").append(toIndentedString(departmentName)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    return "AvgSalaryByDepartment{"
+            + "averageSalary=" + this.averageSalary
+            + ", departmentName='" + this.departmentName
+            + '}';
   }
 
   /**

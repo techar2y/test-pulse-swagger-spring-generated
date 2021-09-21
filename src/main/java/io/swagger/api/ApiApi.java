@@ -9,7 +9,6 @@ import io.swagger.model.AvgSalary;
 import io.swagger.model.AvgSalaryByDepartment;
 import io.swagger.model.AvgSalaryByPosition;
 import io.swagger.model.Employee;
-import io.swagger.model.InlineResponse204;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -18,23 +17,14 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.bind.annotation.CookieValue;
 
-import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
-import java.util.Map;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2021-09-21T08:50:46.352Z[GMT]")
 @Validated
@@ -44,11 +34,11 @@ public interface ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Successfully returned a list of employees", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = Employee.class)))),
         
-        @ApiResponse(responseCode = "204", description = "No data in database", content = @Content(mediaType = "application/json", schema = @Schema(implementation = InlineResponse204.class))),
+        @ApiResponse(responseCode = "204", description = "No data in database", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Employee.class))),
         
-        @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content(mediaType = "application/json", schema = @Schema(implementation = InlineResponse204.class))),
+        @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Employee.class))),
         
-        @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(mediaType = "application/json", schema = @Schema(implementation = InlineResponse204.class))) })
+        @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Employee.class))) })
     @RequestMapping(value = "/api/employee/getAll/{offset}",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
@@ -60,11 +50,11 @@ public interface ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Successfully returned list of avarage salary by department", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = AvgSalaryByPosition.class)))),
         
-        @ApiResponse(responseCode = "204", description = "No data in database", content = @Content(mediaType = "application/json", schema = @Schema(implementation = InlineResponse204.class))),
+        @ApiResponse(responseCode = "204", description = "No data in database", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AvgSalaryByDepartment.class))),
         
-        @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content(mediaType = "application/json", schema = @Schema(implementation = InlineResponse204.class))),
+        @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AvgSalaryByDepartment.class))),
         
-        @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(mediaType = "application/json", schema = @Schema(implementation = InlineResponse204.class))) })
+        @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AvgSalaryByDepartment.class))) })
     @RequestMapping(value = "/api/employee/getAvgSalaryByDepartment/{offset}",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
@@ -74,13 +64,13 @@ public interface ApiApi {
 
     @Operation(summary = "", description = "Get average employees' salary by position", tags={ "Employee" })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "Successfully returned list of avarage salary by position", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = AvgSalaryByDepartment.class)))),
+        @ApiResponse(responseCode = "200", description = "Successfully returned list of avarage salary by position", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = AvgSalaryByPosition.class)))),
         
-        @ApiResponse(responseCode = "204", description = "No data in database", content = @Content(mediaType = "application/json", schema = @Schema(implementation = InlineResponse204.class))),
+        @ApiResponse(responseCode = "204", description = "No data in database", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AvgSalaryByPosition.class))),
         
-        @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content(mediaType = "application/json", schema = @Schema(implementation = InlineResponse204.class))),
+        @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AvgSalaryByPosition.class))),
         
-        @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(mediaType = "application/json", schema = @Schema(implementation = InlineResponse204.class))) })
+        @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AvgSalaryByPosition.class))) })
     @RequestMapping(value = "/api/employee/getAvgSalaryByPosition/{offset}",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
@@ -92,11 +82,11 @@ public interface ApiApi {
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Successfully returned avarage salary", content = @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = AvgSalary.class)))),
         
-        @ApiResponse(responseCode = "204", description = "No data in database", content = @Content(mediaType = "application/json", schema = @Schema(implementation = InlineResponse204.class))),
+        @ApiResponse(responseCode = "204", description = "No data in database", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AvgSalary.class))),
         
-        @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content(mediaType = "application/json", schema = @Schema(implementation = InlineResponse204.class))),
+        @ApiResponse(responseCode = "400", description = "Invalid request", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AvgSalary.class))),
         
-        @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(mediaType = "application/json", schema = @Schema(implementation = InlineResponse204.class))) })
+        @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AvgSalary.class))) })
     @RequestMapping(value = "/api/employee/getAvgSalary",
         produces = { "application/json" }, 
         method = RequestMethod.GET)

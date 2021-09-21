@@ -62,32 +62,28 @@ public class AvgSalaryByPosition   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
+  public boolean equals(Object o) {
+
+    if (this == o)
       return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
+    if (!(o instanceof AvgSalaryByPosition))
       return false;
-    }
     AvgSalaryByPosition avgSalaryByPosition = (AvgSalaryByPosition) o;
-    return Objects.equals(this.averageSalary, avgSalaryByPosition.averageSalary) &&
-            Objects.equals(this.position, avgSalaryByPosition.position);
+    return Objects.equals(this.averageSalary, avgSalaryByPosition.averageSalary)
+            && Objects.equals(this.position, avgSalaryByPosition.position);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(averageSalary, position);
+    return Objects.hash(this.averageSalary, this.position);
   }
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AvgSalaryByPosition {\n");
-
-    sb.append("    averageSalary: ").append(toIndentedString(averageSalary)).append("\n");
-    sb.append("    position: ").append(toIndentedString(position)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    return "AvgSalaryByPosition{"
+            + "averageSalary=" + this.averageSalary
+            + ", position='" + this.position
+            + '}';
   }
 
   /**
